@@ -24,7 +24,7 @@ for person in persons:
         if (template[0:3] == "head"):
             if((random.random()<0.33 and test_head < 1) or train_head == 2):
                 test_head =  test_head + 1
-                template_dir = os.path.join(person_dir,template)
+                template_dir = os.path.join(person_dir,template,'video')
                 frames = os.listdir(template_dir)
                 for frame in frames:
                     feature_path = os.path.join(datapath,person,template,frame)
@@ -32,7 +32,7 @@ for person in persons:
                     writer_test.writerow(tmp)
             else:
                 train_head = train_head + 1
-                template_dir = os.path.join(person_dir,template)
+                template_dir = os.path.join(person_dir,template,'video')
                 frames = os.listdir(template_dir)
                 for frame in frames:
                     feature_path = os.path.join(datapath,person,template,frame)
@@ -41,7 +41,7 @@ for person in persons:
         else:
             if((random.random()<0.3 and test_speak < 3) or train_speak == 7):
                 test_speak =  test_speak + 1
-                template_dir = os.path.join(person_dir,template)
+                template_dir = os.path.join(person_dir,template,'video')
                 frames = os.listdir(template_dir)
                 for frame in frames:
                     feature_path = os.path.join(datapath,person,template,frame)
@@ -49,7 +49,7 @@ for person in persons:
                     writer_test.writerow(tmp)
             else:
                 train_head = train_head + 1
-                template_dir = os.path.join(person_dir,template)
+                template_dir = os.path.join(person_dir,template,'video')
                 frames = os.listdir(template_dir)
                 for frame in frames:
                     feature_path = os.path.join(datapath,person,template,frame)
