@@ -14,6 +14,7 @@ writer_test.writerow(file_haeader)
 writer_train.writerow(file_haeader)
 for person in persons:
     person_dir = os.path.join(datapath,person,"video")
+    feature_dir = os.path.join(datapath,person,"feature")
     templates = os.listdir(person_dir)
     train_head = 0
     test_head = 0
@@ -24,35 +25,34 @@ for person in persons:
         if (template[0:3] == "head"):
             if((random.random()<0.33 and test_head < 1) or train_head == 2):
                 test_head =  test_head + 1
-                template_dir = os.path.join(person_dir,template)
+                template_dir = os.path.join(feature_dir,template)
                 frames = os.listdir(template_dir)
                 for frame in frames:
-                    feature_path = os.path.join(datapath,person,template,frame)
+                    feature_path = os.path.join(template_dir,frame)
                     tmp = [person,template,feature_path]
                     writer_test.writerow(tmp)
             else:
                 train_head = train_head + 1
-                template_dir = os.path.join(person_dir,template)
+                template_dir = os.path.join(feature_dir,template)
                 frames = os.listdir(template_dir)
                 for frame in frames:
-                    feature_path = os.path.join(datapath,person,template,frame)
+                    feature_path = os.path.join(template_dir,frame)
                     tmp = [person,template,feature_path]
                     writer_train.writerow(tmp)
         else:
             if((random.random()<0.3 and test_speak < 3) or train_speak == 7):
                 test_speak =  test_speak + 1
-                template_dir = os.path.join(person_dir,template)
+                template_dir = os.path.join(feature_dir,template)
                 frames = os.listdir(template_dir)
                 for frame in frames:
-                    feature_path = os.path.join(datapath,person,template,frame)
+                    feature_path = os.path.join(template_dir,frame)
                     tmp = [person,template,feature_path]
                     writer_test.writerow(tmp)
             else:
                 train_head = train_head + 1
-                template_dir = os.path.join(person_dir,template)
+                template_dir = os.path.join(feature_dir,template)
                 frames = os.listdir(template_dir)
                 for frame in frames:
-                    feature_path = os.path.join(datapath,person,template,frame)
+                    feature_path = os.path.join(template_dir,frame)
                     tmp = [person,template,feature_path]
                     writer_train.writerow(tmp)
-__
