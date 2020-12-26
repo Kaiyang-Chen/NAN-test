@@ -25,14 +25,14 @@ for person in persons:
                 test_head =  test_head + 1
                 frames = os.listdir(template)
                 for frame in frames:
-                    feature_path = os.path.join(datapath,person,templatr,frame)
+                    feature_path = os.path.join(datapath,person,template,frame)
                     tmp = [person,template,feature_path]
                     writer_test.writerow(tmp)
             else:
                 train_head = train_head + 1
                 frames = os.listdir(template)
                 for frame in frames:
-                    feature_path = os.path.join(datapath,person,templatr,frame)
+                    feature_path = os.path.join(datapath,person,template,frame)
                     tmp = [person,template,feature_path]
                     writer_train.writerow(tmp)
         else:
@@ -40,14 +40,14 @@ for person in persons:
                 test_speak =  test_speak + 1
                 frames = os.listdir(template)
                 for frame in frames:
-                    feature_path = os.path.join(datapath,person,templatr,frame)
+                    feature_path = os.path.join(datapath,person,template,frame)
                     tmp = [person,template,feature_path]
                     writer_test.writerow(tmp)
             else:
                 train_head = train_head + 1
                 frames = os.listdir(template)
                 for frame in frames:
-                    feature_path = os.path.join(datapath,person,templatr,frame)
+                    feature_path = os.path.join(datapath,person,template,frame)
                     tmp = [person,template,feature_path]
                     writer_train.writerow(tmp)
 __
