@@ -3,7 +3,7 @@ import os
 import csv
 import random
 
-datapath = '/home/lss/Desktop/cky/NAN_test/data'
+datapath = '/home/lss/Desktop/cky/NAN_test/Conrad Dataset'
 file_haeader = ["subject","template","feature_path"]
 csvTrain = open("train.csv", "w")
 writer_train = csv.writer(csvTrain)
@@ -50,3 +50,4 @@ for person in persons:
                     feature_path = os.path.join(datapath,person,templatr,frame)
                     tmp = [person,template,feature_path]
                     writer_train.writerow(tmp)
+__
