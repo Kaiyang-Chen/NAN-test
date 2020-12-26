@@ -22,7 +22,7 @@ for person in persons:
     for template in templates:
         
         if (template[0:3] == "head"):
-            if((random.random()<0.33 & test_head < 1) | train_head == 2):
+            if((random.random()<0.33 and test_head < 1) or train_head == 2):
                 test_head =  test_head + 1
                 template_dir = os.path.join(person_dir,template)
                 frames = os.listdir(template_dir)
@@ -39,7 +39,7 @@ for person in persons:
                     tmp = [person,template,feature_path]
                     writer_train.writerow(tmp)
         else:
-            if((random.random()<0.3 & test_speak < 3) | train_speak == 7):
+            if((random.random()<0.3 and test_speak < 3) or train_speak == 7):
                 test_speak =  test_speak + 1
                 template_dir = os.path.join(person_dir,template)
                 frames = os.listdir(template_dir)
