@@ -4,7 +4,7 @@ import csv
 import random
 
 datapath = '/home/lss/Desktop/cky/NAN-test/Conrad Dataset'
-
+persons = os.listdir(datapath)
 for person in persons:
     person_dir = os.path.join(datapath,person,"video")
     person_feature = os.path.join(datapath,person,"feature")
