@@ -26,7 +26,7 @@ def get_train_test_set():
         cur_line += 1
         if(cur_line == 1):
             continue
-        lst_tmp = line.splitre(',')
+        lst_tmp = line.split(',')
         template_id = lst_tmp[1]
         subject_id = lst_tmp[0]
         fearture_dir = os.path.join(data_dir_base,subject_id,"feature",template_id,template_id,".mat")
