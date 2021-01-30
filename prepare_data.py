@@ -29,7 +29,7 @@ def get_train_test_set():
         lst_tmp = line.split(',')
         template_id = lst_tmp[1]
         subject_id = lst_tmp[0]
-        fearture_dir = os.path.join(data_dir_base,subject_id,"feature",template_id,template_id,".mat")
+        fearture_dir = os.path.join(data_dir_base,subject_id,"feature",template_id,template_id+".mat")
         template_id = subject_id + "/" + template_id
 
         if templates.count(template_id) == 0:
