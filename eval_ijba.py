@@ -17,8 +17,8 @@ def cal_far(sim, actual_issame, num_interval=2000):
     TN = np.zeros(thr.shape, dtype=np.float32)
     TA = np.zeros(thr.shape, dtype=np.float32)
     acc = np.zeros(thr.shape, dtype=np.float32)
-    idx_pos = np.where(actual_issame == True)[0].tolist()
-    idx_neg = np.where(actual_issame == False)[0].tolist()
+    idx_pos = np.where(actual_issame == 'True')[0].tolist()
+    idx_neg = np.where(actual_issame == 'False')[0].tolist()
     num_pos = len(idx_pos)
     num_neg = len(idx_neg)
 
@@ -29,8 +29,14 @@ def cal_far(sim, actual_issame, num_interval=2000):
         num_fa = np.where(sim[idx_neg] > cur_thr)[0].shape[0]
         num_tn = np.where(sim[idx_neg] < cur_thr)[0].shape[0]
         #
-        FA[cur] = num_fa / num_neg
-        TA[cur] = num_ta / num_pos
+        if num_neg != 0:
+            FA[cur] = num_fa / num_neg
+        else:
+            FA[cur] = 0
+        if num_pos != 0:
+            TA[cur] = num_ta / num_pos
+        else:
+            TA[cur] = 0
         acc[cur] = (num_ta + num_tn) / (num_neg + num_pos)
         cur += 1
 

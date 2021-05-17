@@ -60,6 +60,7 @@ class Dataset(object):
         lst_len = []
         lst_label = []
         for s in sub_c:
+            #print(s)
             set = self.get_one_set(s)
             batch.append(set)
             lst_len.append(set.shape[0])
@@ -71,8 +72,8 @@ class Dataset(object):
 if __name__ == '__main__':
 
     num_sub = 100
-    meta_dir = './data/Celeb/close'
-    lst_sub_faces  = pickle.load(open(os.path.join(meta_dir, 'train_{}.bin'.format(num_sub)), 'rb'))
+    meta_dir = './'
+    lst_sub_faces  = pickle.load(open(os.path.join(meta_dir, 'train_subject.bin'), 'rb'))
     dataset = Dataset(lst_sub_faces, 512, 20)
     while True:
         batch, lst_label, lst_len = dataset.next_batch()

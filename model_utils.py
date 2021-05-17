@@ -47,6 +47,9 @@ class Pooling_Classifier(nn.Module):
         self.pooling_type = pooling_type
 
         self.fc = nn.Linear(feat_dim, num_classes)
+        self.relu = nn.ReLU()
+        self.tanh = nn.Tanh()
+        self.fc2 = nn.Linear(num_classes,num_classes)
         # self.attention_layer = []
         if pooling_type == 'NAN':
             self.attention_layer = NAN_Attention(feat_dim)
@@ -70,8 +73,11 @@ class Pooling_Classifier(nn.Module):
         else:
             lst_mx = []
             idx = 0
+            #print(range(lst_lens.size(0)))
             for i in range(lst_lens.size(0)):
                 set_x = x[idx:idx + lst_lens[i], :] # n*d
+                #print(set_x.size())
+                
                 idx += lst_lens[i]
                 lst_mx.append(set_x.t().unsqueeze(0))
 
@@ -79,6 +85,8 @@ class Pooling_Classifier(nn.Module):
             feats = self.attention_layer(lst_mx)
 
             logits = self.fc(feats)
+            #logits = self.relu(logits)
+            #logits = self.fc2(logits)
 
             return feats, logits
 
